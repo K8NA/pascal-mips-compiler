@@ -1,0 +1,123 @@
+j main
+fact:
+sw $fp, -4($sp)
+sw $ra, -8($sp)
+move $fp, $sp
+addiu $sp, $sp, -12
+lw $t1, 0($fp)
+move $t2, $t1
+addiu $t3, $zero, 0
+bge $t3, $t2, L1
+L0:
+move $t3, $t1
+move $t6, $t1
+addiu $t7, $zero, 1
+subu $t5, $t6, $t7
+sw $t0, -4($sp)
+sw $t1, -8($sp)
+sw $t2, -12($sp)
+sw $t3, -16($sp)
+sw $t4, -20($sp)
+sw $t5, -24($sp)
+sw $t6, -28($sp)
+sw $t7, -32($sp)
+sw $t8, -36($sp)
+sw $t9, -40($sp)
+sw $s0, -44($sp)
+sw $s1, -48($sp)
+sw $s2, -52($sp)
+sw $s3, -56($sp)
+sw $s4, -60($sp)
+sw $s5, -64($sp)
+sw $s6, -68($sp)
+sw $s7, -72($sp)
+addiu $sp, $sp, -72
+sw $t5, -4($sp)
+addiu $sp, $sp, -4
+jal fact
+addiu $sp, $sp, 4
+addiu $sp, $sp, 72
+lw $t0, -4($sp)
+lw $t1, -8($sp)
+lw $t2, -12($sp)
+lw $t3, -16($sp)
+lw $t4, -20($sp)
+lw $t5, -24($sp)
+lw $t6, -28($sp)
+lw $t7, -32($sp)
+lw $t8, -36($sp)
+lw $t9, -40($sp)
+lw $s0, -44($sp)
+lw $s1, -48($sp)
+lw $s2, -52($sp)
+lw $s3, -56($sp)
+lw $s4, -60($sp)
+lw $s5, -64($sp)
+lw $s6, -68($sp)
+lw $s7, -72($sp)
+move $t4, $v0
+mul $t2, $t3, $t4
+move $t0, $t2
+j L2
+L1: 
+addiu $t2, $zero, 1
+move $t0, $t2
+L2: 
+move $v0, $t0
+move $sp, $fp
+lw $ra, -8($sp)
+lw $fp, -4($sp)
+jr $ra
+main:
+addiu $t2, $zero, 10
+sw $t0, -4($sp)
+sw $t1, -8($sp)
+sw $t2, -12($sp)
+sw $t3, -16($sp)
+sw $t4, -20($sp)
+sw $t5, -24($sp)
+sw $t6, -28($sp)
+sw $t7, -32($sp)
+sw $t8, -36($sp)
+sw $t9, -40($sp)
+sw $s0, -44($sp)
+sw $s1, -48($sp)
+sw $s2, -52($sp)
+sw $s3, -56($sp)
+sw $s4, -60($sp)
+sw $s5, -64($sp)
+sw $s6, -68($sp)
+sw $s7, -72($sp)
+addiu $sp, $sp, -72
+sw $t2, -4($sp)
+addiu $sp, $sp, -4
+jal fact
+addiu $sp, $sp, 4
+addiu $sp, $sp, 72
+lw $t0, -4($sp)
+lw $t1, -8($sp)
+lw $t2, -12($sp)
+lw $t3, -16($sp)
+lw $t4, -20($sp)
+lw $t5, -24($sp)
+lw $t6, -28($sp)
+lw $t7, -32($sp)
+lw $t8, -36($sp)
+lw $t9, -40($sp)
+lw $s0, -44($sp)
+lw $s1, -48($sp)
+lw $s2, -52($sp)
+lw $s3, -56($sp)
+lw $s4, -60($sp)
+lw $s5, -64($sp)
+lw $s6, -68($sp)
+lw $s7, -72($sp)
+move $t1, $v0
+li $v0, 1
+add $a0, $t1, $zero
+syscall
+li $v0, 11
+li $a0, 32
+syscall
+li $v0, 10
+syscall
